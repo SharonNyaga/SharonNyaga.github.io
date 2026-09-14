@@ -1,1016 +1,340 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sharon Nyaga | Data Analyst | Power BI, SQL & Python</title>
-  <meta name="description" content="Sharon Nyaga is a Data Analyst focused on Power BI, SQL, Python and Advanced Excel, building practical analytics solutions and business dashboards.">
-  <meta name="author" content="Sharon Nyaga">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sharon Viona Nyaga | Data Analyst | Finance Analyst</title>
+<meta name="description" content="Sharon Viona Nyaga — Data Analyst & Finance Analyst based in Kenya, open to remote roles. Power BI, SQL, Python and Advanced Excel.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f6f3ec;
+  --panel:#fffdf9;
+  --ink:#20261f;
+  --muted:#666f61;
+  --line:#ded6c4;
+  --moss:#3c5240;
+  --gold:#a9762f;
+  --focus:#0b6b63;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,Arial,sans-serif;line-height:1.6;font-size:16px}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;letter-spacing:-.01em;margin:0}
+.mono{font-family:"IBM Plex Mono",monospace}
+.container{width:min(1080px,92%);margin:auto}
 
-  <style>
-    :root{
-      --ink:#0f1720;
-      --paper:#faf8f3;
-      --panel:#ffffff;
-      --line:#e4ded0;
-      --amber:#d17d2a;
-      --amber-soft:#f2c185;
-      --teal:#1f6b63;
-      --teal-deep:#0d3b36;
-      --muted:#5d6773;
-      --mono:'IBM Plex Mono', monospace;
-    }
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:rgba(246,243,236,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{height:68px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:Fraunces,serif;font-weight:600;font-size:18px}
+.navlinks{display:flex;gap:28px;font-size:14px;font-weight:500;color:var(--muted)}
+.navlinks a{text-decoration:none}
+.navlinks a:hover{color:var(--moss)}
+.nav-cv{font-size:14px;font-weight:600;color:var(--moss);text-decoration:none;border-bottom:1px solid var(--moss);padding-bottom:1px}
 
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{
-      background:var(--paper);
-      color:var(--ink);
-      font-family:'Inter',sans-serif;
-      line-height:1.6;
-      -webkit-font-smoothing:antialiased;
-    }
-    h1,h2,h3,.display{
-      font-family:'Space Grotesk',sans-serif;
-      letter-spacing:-.02em;
-    }
-    a{color:inherit}
-    .wrap{max-width:1040px;margin:0 auto;padding:0 28px}
-    ::selection{background:var(--amber);color:#fff}
+/* hero */
+.hero{padding:88px 0 64px;border-bottom:1px solid var(--line)}
+.hero-tag{color:var(--moss);font-size:13px;font-weight:600}
+.hero h1{font-size:clamp(38px,5.4vw,58px);line-height:1.06;max-width:760px;margin:20px 0 22px;font-weight:600}
+.hero p{max-width:620px;font-size:18px;color:var(--muted);margin:0}
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:32px}
+.btn{padding:13px 22px;border-radius:2px;text-decoration:none;font-weight:600;font-size:14px;border:1px solid var(--ink)}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.primary:hover{background:var(--moss);border-color:var(--moss)}
+.btn.ghost:hover{border-color:var(--moss);color:var(--moss)}
 
-    /* Navigation */
-    header.site{
-      position:sticky;
-      top:0;
-      z-index:20;
-      background:rgba(250,248,243,.94);
-      backdrop-filter:blur(8px);
-      border-bottom:1px solid var(--line);
-    }
-    header.site .wrap{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      min-height:64px;
-    }
-    .brand{
-      font-family:'Space Grotesk',sans-serif;
-      font-weight:700;
-      font-size:1.05rem;
-    }
-    .brand span{color:var(--amber)}
-    nav.links{display:flex;gap:25px;font-size:.9rem}
-    nav.links a{text-decoration:none;color:var(--muted);transition:color .15s}
-    nav.links a:hover{color:var(--ink)}
-    .nav-toggle{
-      display:none;
-      background:none;
-      border:none;
-      font-size:1.4rem;
-      cursor:pointer;
-      color:var(--ink);
-    }
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:56px;border-top:1px solid var(--line)}
+.stat{padding:22px 0 0;border-right:1px solid var(--line)}
+.stat:last-child{border-right:none}
+.stat strong{display:block;font-family:Fraunces,serif;font-size:32px;font-weight:600;color:var(--moss)}
+.stat span{font-size:13px;color:var(--muted);display:block;max-width:220px;margin-top:4px}
 
-    /* Hero */
-    .hero{
-      position:relative;
-      background:
-        radial-gradient(ellipse 900px 500px at 12% -10%,rgba(31,107,99,.35),transparent 60%),
-        radial-gradient(ellipse 700px 500px at 92% 10%,rgba(209,125,42,.22),transparent 55%),
-        var(--ink);
-      color:#f4f1ea;
-      padding:105px 0 0;
-      overflow:hidden;
-    }
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background-image:
-        linear-gradient(rgba(244,241,234,.045) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(244,241,234,.045) 1px,transparent 1px);
-      background-size:44px 44px;
-      mask-image:linear-gradient(180deg,rgba(0,0,0,.9),transparent 85%);
-      pointer-events:none;
-    }
-    .hero .wrap{position:relative;z-index:1}
-    .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      margin-bottom:18px;
-      font-family:var(--mono);
-      font-size:.78rem;
-      color:var(--amber-soft);
-    }
-    .kicker::before{
-      content:"";
-      width:7px;
-      height:7px;
-      border-radius:50%;
-      background:var(--amber-soft);
-    }
-    .hero h2{
-    max-width:22ch;
-    font-size:clamp(2.9rem,5vw,3.9rem);
-    line-height:1.05;
-    font-weight:700;
-    color:#fff;
-    }
-    .hero h2 .accent{color:var(--amber-soft)}
-    .hero .role{
-      margin-top:22px;
-      font-family:var(--mono);
-      font-size:.92rem;
-      color:#b9c2c8;
-    }
-    .hero p.lead{
-      max-width:62ch;
-      margin-top:20px;
-      font-size:1.08rem;
-      color:#c9d1d6;
-    }
-    .cta{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-      margin-top:32px;
-    }
-    .btn{
-      display:inline-block;
-      padding:12px 21px;
-      border-radius:4px;
-      font-size:.92rem;
-      font-weight:600;
-      text-decoration:none;
-      border:1px solid transparent;
-      transition:background .15s,color .15s,border-color .15s,transform .15s;
-    }
-    .btn:hover{transform:translateY(-1px)}
-    .hero .btn.solid{
-      background:var(--amber);
-      color:#1a1204;
-      border-color:var(--amber);
-    }
-    .hero .btn.solid:hover{background:var(--amber-soft)}
-    .hero .btn.ghost{
-      background:transparent;
-      color:#f4f1ea;
-      border-color:rgba(244,241,234,.35);
-    }
-    .hero .btn.ghost:hover{border-color:#f4f1ea}
+section{padding:64px 0}
+.head{margin-bottom:34px;max-width:640px}
+.head .kicker{font-size:13px;font-weight:600;color:var(--gold);margin-bottom:8px}
+h2{font-size:30px;font-weight:600}
+.head p{color:var(--muted);margin:10px 0 0;font-size:15px}
 
-    .hero-panel{
-      margin-top:58px;
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(244,241,234,.14);
-      border-top:1px solid rgba(244,241,234,.22);
-      border-radius:10px 10px 0 0;
-      padding:24px 26px 0;
-    }
-    .panel-head{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding-bottom:16px;
-      margin-bottom:20px;
-      border-bottom:1px solid rgba(244,241,234,.12);
-    }
-    .dots{display:flex;gap:6px}
-    .dots span{
-      width:9px;height:9px;border-radius:50%;
-      background:rgba(244,241,234,.25)
-    }
-    .panel-head .label{
-      font-family:var(--mono);
-      font-size:.72rem;
-      color:#9aa5ac;
-    }
-    .hero-chart{
-      display:flex;
-      align-items:flex-end;
-      gap:12px;
-      height:145px;
-      padding-bottom:20px;
-    }
-    .bar-col{
-      flex:1;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:8px;
-      height:100%;
-      justify-content:flex-end;
-    }
-    .bar{
-      width:100%;
-      max-width:38px;
-      border-radius:4px 4px 0 0;
-      background:linear-gradient(180deg,var(--amber-soft),var(--teal));
-      opacity:0;
-      transform:scaleY(0);
-      transform-origin:bottom;
-      animation:rise .8s cubic-bezier(.2,.7,.3,1) forwards;
-    }
-    .mo{
-      font-family:var(--mono);
-      font-size:.66rem;
-      color:#7c868d;
-    }
-    @keyframes rise{to{opacity:1;transform:scaleY(1)}}
-    @media(prefers-reduced-motion:reduce){
-      .bar{animation:none;opacity:1;transform:scaleY(1)}
-    }
+/* about */
+.about{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:start}
+.about p{font-size:16px;color:#3a423a}
+.callout{border-left:2px solid var(--moss);padding:14px 18px;background:var(--panel);font-size:14px;color:var(--muted);margin-top:20px}
+.panel{border:1px solid var(--line);background:var(--panel);padding:22px}
+.panel h3{font-size:14px;font-weight:600;color:var(--muted);margin-bottom:12px}
+.panel .rows a{display:block;text-decoration:none;padding:7px 0;border-bottom:1px solid var(--line);font-size:15px;font-weight:500}
+.panel .rows a:last-child{border-bottom:none}
+.panel .rows a:hover{color:var(--moss)}
+.panel + .panel{margin-top:16px}
 
-    .hero-stats{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      border:1px solid rgba(244,241,234,.14);
-      border-top:none;
-      background:rgba(255,255,255,.03);
-    }
-    .hero-stats div{
-      padding:21px 23px;
-      border-left:1px solid rgba(244,241,234,.12);
-    }
-    .hero-stats div:first-child{border-left:none}
-    .hero-stats b{
-      display:block;
-      font-family:var(--mono);
-      font-size:1.45rem;
-      font-weight:500;
-      color:var(--amber-soft);
-    }
-    .hero-stats span{
-      display:block;
-      margin-top:5px;
-      font-size:.8rem;
-      color:#aab2b8;
-    }
-    .hero-muted{
-      padding:20px 0 44px;
-      font-size:.85rem;
-      color:#9aa5ac;
-    }
+/* skills */
+.skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.skill{padding:22px;background:var(--panel)}
+.skill h3{font-size:14px;font-weight:600;margin-bottom:8px}
+.skill p{font-size:13.5px;color:var(--muted);margin:0;line-height:1.7}
 
-    /* General sections */
-    section{padding:82px 0}
-    section+section{border-top:1px solid var(--line)}
-    .section-label{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      margin-bottom:9px;
-      font-family:var(--mono);
-      font-size:.78rem;
-      color:var(--teal);
-    }
-    .section-label::before{
-      content:"";
-      width:22px;
-      height:1px;
-      background:var(--teal);
-    }
-    .section-title{
-      max-width:23ch;
-      margin-bottom:35px;
-      font-size:2rem;
-      line-height:1.15;
-      font-weight:600;
-    }
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.project{background:var(--panel);padding:28px;display:flex;flex-direction:column;min-height:280px}
+.project .tech{font-size:12px;color:var(--gold);font-weight:600;margin-bottom:10px}
+.project h3{font-size:21px;font-weight:600;margin-bottom:10px}
+.project ul{margin:0 0 16px;padding-left:18px;font-size:14px;color:#3a423a}
+.project li{margin:6px 0}
+.project .links{margin-top:auto;display:flex;gap:16px;flex-wrap:wrap;padding-top:6px;border-top:1px solid var(--line)}
+.project .links a{color:var(--moss);font-weight:600;font-size:13.5px;text-decoration:none}
+.project .links a:hover{text-decoration:underline}
 
-    /* About */
-    .about-grid{
-      display:grid;
-      grid-template-columns:1.25fr .75fr;
-      gap:55px;
-    }
-    .about-grid p{
-      max-width:61ch;
-      margin-bottom:17px;
-      color:var(--muted);
-      font-size:1rem;
-    }
-    .about-grid p strong{color:var(--ink);font-weight:600}
-    .stat-card{
-      margin-bottom:13px;
-      padding:20px 22px;
-      border:1px solid var(--line);
-      border-left:3px solid var(--teal);
-      background:var(--panel);
-      box-shadow:0 1px 2px rgba(15,23,32,.04);
-    }
-    .stat-card:nth-child(2){border-left-color:var(--amber)}
-    .stat-card:nth-child(3){border-left-color:#7a5ea8}
-    .stat-card .num{
-      font-family:var(--mono);
-      font-size:1.55rem;
-      font-weight:500;
-    }
-    .stat-card .label{
-      margin-top:4px;
-      color:var(--muted);
-      font-size:.84rem;
-    }
+/* experience */
+.timeline-wrap{border-left:1px solid var(--line);margin-left:6px}
+.timeline{position:relative;padding:0 0 36px 30px}
+.timeline:last-child{padding-bottom:0}
+.dot{position:absolute;left:-5px;top:6px;width:9px;height:9px;border-radius:50%;background:var(--moss)}
+.timeline h3{font-size:18px;font-weight:600}
+.timeline .role-meta{font-size:13.5px;color:var(--muted);margin-top:2px}
+.timeline .date{font-size:12.5px;color:var(--gold);font-weight:600;margin-top:6px;display:block}
+.timeline ul{margin:12px 0 0;padding-left:18px;font-size:14.5px;color:#3a423a}
+.timeline li{margin:6px 0}
 
-    /* Skills */
-    .skill-groups{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:18px;
-    }
-    .skill-group{
-      padding:23px;
-      border:1px solid var(--line);
-      border-radius:8px;
-      background:var(--panel);
-    }
-    .group-head{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      margin-bottom:15px;
-    }
-    .group-icon{
-      width:31px;height:31px;
-      display:flex;align-items:center;justify-content:center;
-      border-radius:7px;
-      background:#eef3f1;
-      color:var(--teal);
-    }
-    .skill-group:nth-child(2) .group-icon{background:#fbf0e3;color:var(--amber)}
-    .skill-group:nth-child(3) .group-icon{background:#f1ecf7;color:#7a5ea8}
-    .skill-group:nth-child(4) .group-icon{background:#eaf0f6;color:#2c6a9e}
-    .skill-group h3{font-size:1rem;font-weight:600}
-    .skill-list{
-      display:flex;
-      flex-wrap:wrap;
-      gap:8px;
-    }
-    .skill-list span{
-      padding:6px 10px;
-      border:1px solid var(--line);
-      border-radius:4px;
-      background:#fbfaf7;
-      color:var(--ink);
-      font-family:var(--mono);
-      font-size:.72rem;
-    }
-    .skill-note{
-      margin-top:13px;
-      color:var(--muted);
-      font-size:.84rem;
-    }
+/* education */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.edu{background:var(--panel);padding:22px}
+.edu .badge{display:inline-block;font-size:11.5px;font-weight:600;padding:3px 9px;border-radius:999px;margin-bottom:10px}
+.edu .badge.done{background:#e2ead9;color:var(--moss)}
+.edu .badge.progress{background:#f3e6cf;color:var(--gold)}
+.edu h3{font-size:16px;font-weight:600}
+.edu .role-meta{font-size:13.5px;color:var(--muted);margin-top:4px}
+.edu .date{font-size:12.5px;color:var(--muted);margin-top:8px;display:block}
 
-    /* Projects */
-    .project{
-      margin-bottom:20px;
-      padding:28px 30px;
-      border:1px solid var(--line);
-      border-radius:7px;
-      background:var(--panel);
-      box-shadow:0 1px 2px rgba(15,23,32,.03);
-      transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
-    }
-    .project:last-child{margin-bottom:0}
-    .project:hover{
-      transform:translateY(-3px);
-      box-shadow:0 14px 28px rgba(15,23,32,.09);
-      border-color:#cfc8b6;
-    }
-    .project .tag{
-      display:block;
-      margin-bottom:7px;
-      color:var(--amber);
-      font-family:var(--mono);
-      font-size:.72rem;
-    }
-    .project h3{
-      margin-bottom:9px;
-      font-size:1.28rem;
-      font-weight:600;
-    }
-    .project p{
-      max-width:67ch;
-      margin-bottom:13px;
-      color:var(--muted);
-    }
-    .project ul{
-      max-width:72ch;
-      padding-left:18px;
-      margin-bottom:15px;
-      color:var(--muted);
-      font-size:.93rem;
-    }
-    .project li{margin-bottom:5px}
-    .tools{
-      display:flex;
-      flex-wrap:wrap;
-      gap:7px;
-      margin-bottom:17px;
-    }
-    .tools span{
-      padding:4px 9px;
-      border:1px solid #d7e4e0;
-      border-radius:3px;
-      background:#eef3f1;
-      color:var(--teal-deep);
-      font-family:var(--mono);
-      font-size:.7rem;
-    }
-    .project a.view{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      color:var(--ink);
-      font-size:.9rem;
-      font-weight:600;
-      text-decoration:none;
-    }
-    .project a.view::after{content:"→";transition:transform .15s}
-    .project a.view:hover{color:var(--teal)}
-    .project a.view:hover::after{transform:translateX(3px)}
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.contact .panel{padding:28px}
+.contact .panel h3{font-size:17px;font-family:Fraunces,serif;font-weight:600;color:var(--ink);margin-bottom:8px}
+.contact .panel p{font-size:14px;color:var(--muted);margin:0 0 16px}
 
-    /* Experience */
-    .job{
-      display:grid;
-      grid-template-columns:155px 1fr;
-      gap:25px;
-      padding:22px 0;
-      border-bottom:1px solid var(--line);
-    }
-    .job:last-child{border-bottom:none}
-    .when{
-      padding-top:3px;
-      color:var(--muted);
-      font-family:var(--mono);
-      font-size:.82rem;
-    }
-    .job h3{font-size:1.06rem;font-weight:600}
-    .org{
-      margin-bottom:9px;
-      color:var(--muted);
-      font-size:.9rem;
-    }
-    .job ul{
-      padding-left:18px;
-      color:var(--muted);
-      font-size:.94rem;
-    }
-    .job li{margin-bottom:6px}
+footer{background:var(--ink);color:#dfe3da}
+.footer{padding:40px 0;display:flex;justify-content:space-between;gap:20px;align-items:center;flex-wrap:wrap}
+.footer .fname{font-family:Fraunces,serif;font-weight:600;font-size:16px;color:#fff}
+.footer .froles{font-size:12.5px;color:#9aa393;margin-top:2px}
+.footer .flinks{display:flex;gap:20px;font-size:13.5px}
+.footer .flinks a{text-decoration:none;color:#c7ccc0}
+.footer .flinks a:hover{color:#fff}
 
-    /* Certifications */
-    .learn-grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:16px;
-    }
-    .learn-card{
-      padding:21px 22px;
-      border:1px solid var(--line);
-      border-radius:6px;
-      background:var(--panel);
-    }
-    .status{
-      display:inline-block;
-      margin-bottom:10px;
-      padding:3px 9px;
-      border:1px solid #d7e4e0;
-      border-radius:20px;
-      background:#eef3f1;
-      color:var(--teal-deep);
-      font-family:var(--mono);
-      font-size:.68rem;
-    }
-    .learn-card h3{font-size:1rem;font-weight:600}
-    .prov{margin-top:3px;color:var(--muted);font-size:.84rem}
-
-    /* Contact */
-    .contact-box{
-      padding:50px 44px;
-      border:1px solid var(--line);
-      border-radius:8px;
-      background:linear-gradient(155deg,var(--panel),#fbf9f4);
-    }
-    .contact-box h2{
-      max-width:27ch;
-      margin-bottom:13px;
-      font-size:1.9rem;
-      line-height:1.2;
-      font-weight:600;
-    }
-    .contact-box p{
-      max-width:55ch;
-      margin-bottom:24px;
-      color:var(--muted);
-    }
-    .contact-links{display:flex;gap:12px;flex-wrap:wrap}
-    .contact-links .btn.solid{
-      background:var(--ink);
-      color:var(--paper);
-      border-color:var(--ink);
-    }
-    .contact-links .btn.solid:hover{
-      background:var(--teal);
-      border-color:var(--teal);
-    }
-    .contact-links .btn.ghost{
-      background:transparent;
-      border-color:var(--line);
-    }
-    .contact-links .btn.ghost:hover{
-      background:var(--ink);
-      color:var(--paper);
-      border-color:var(--ink);
-    }
-
-    footer{
-      padding:28px 0 48px;
-      color:var(--muted);
-      font-family:var(--mono);
-      font-size:.78rem;
-    }
-
-    @media(max-width:760px){
-      nav.links{
-        position:fixed;
-        top:64px;
-        left:0;
-        right:0;
-        flex-direction:column;
-        gap:17px;
-        padding:20px 28px;
-        background:var(--paper);
-        border-bottom:1px solid var(--line);
-        transform:translateY(-140%);
-        transition:transform .2s ease;
-      }
-      nav.links.open{transform:translateY(0)}
-      .nav-toggle{display:block}
-      .about-grid,
-      .skill-groups,
-      .learn-grid{grid-template-columns:1fr}
-      .job{grid-template-columns:1fr;gap:7px}
-      .hero-stats{grid-template-columns:1fr}
-      .hero-stats div{border-left:none;border-top:1px solid rgba(244,241,234,.12)}
-      .hero-stats div:first-child{border-top:none}
-      .hero h1{max-width:13ch}
-      .contact-box{padding:34px 26px}
-    }
-  </style>
+@media(max-width:760px){
+  .navlinks{display:none}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:none;border-bottom:1px solid var(--line);padding-bottom:16px}
+  .about,.skill-grid,.projects,.edu-grid,.contact{grid-template-columns:1fr}
+  section{padding:48px 0}
+  .hero{padding:56px 0 44px}
+}
+</style>
 </head>
-
 <body>
 
-<header class="site">
-  <div class="wrap">
-    <div class="brand">Sharon Nyaga<span>.</span></div>
+<nav><div class="container nav">
+  <div class="brand">Sharon Viona Nyaga</div>
+  <div class="navlinks"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#contact">Contact</a></div>
+  <a class="nav-cv" href="Sharon_Nyaga_Data_Finance_Analyst_CV.docx" download>Download CV</a>
+</div></nav>
 
-    <nav class="links" id="navLinks">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#experience">Experience</a>
-      <a href="#learning">Certifications</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
+<header class="hero"><div class="container">
+  <div class="hero-tag mono">DATA ANALYST — FINANCE ANALYST — KENYA — OPEN TO REMOTE</div>
+  <h1>I turn scattered business data into decisions people can act on.</h1>
+  <p>Finance-trained analyst working across Power BI, SQL, Python and Advanced Excel: cleaning messy data, building dashboards, and translating numbers into insight for non-technical stakeholders. </p>
+  <div class="actions">
+    <a class="btn primary" href="#projects">See my work</a>
+    <a class="btn ghost" href="Sharon_Nyaga_Data_Finance_Analyst_CV.docx" download>Download CV</a>
+    <a class="btn ghost" href="mailto:vionasharon6@gmail.com">Get in touch</a>
   </div>
-</header>
-
-<main>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="wrap">
-      <div class="kicker">Available for remote roles</div>
-
-      <h2>Data Analyst helping businesses <span class="accent">understand</span> what's happening,
-      what's costing them, and what to do next.</h2>
-
-      <div class="role">Power BI · SQL · Python · Advanced Excel</div>
-
-      <p class="lead">
-       With 4+ years of experience, I focus on the questions behind the numbers: where money is being lost, 
-        where time is being wasted, where opportunities are being missed, and what risks need attention. 
-        I turn complex reports and spreadsheets into clear dashboards that help decision-makers see what matters and act on it.
-      </p>
-
-      <div class="cta">
-        <a class="btn solid" href="#projects">View my projects</a>
-        <a class="btn ghost" href="https://www.linkedin.com/in/sharonviona" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn ghost" href="https://github.com/SharonNyaga" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </div>
-
-    <div class="wrap">
-      <div class="hero-panel">
-        <div class="panel-head">
-          <div class="dots"><span></span><span></span><span></span></div>
-          <div class="label">analytics_dashboard.pbix — monthly performance</div>
-        </div>
-
-        <div class="hero-chart" aria-hidden="true">
-          <div class="bar-col"><div class="bar" style="height:38%;animation-delay:.05s"></div><span class="mo">J</span></div>
-          <div class="bar-col"><div class="bar" style="height:55%;animation-delay:.12s"></div><span class="mo">F</span></div>
-          <div class="bar-col"><div class="bar" style="height:47%;animation-delay:.19s"></div><span class="mo">M</span></div>
-          <div class="bar-col"><div class="bar" style="height:71%;animation-delay:.26s"></div><span class="mo">A</span></div>
-          <div class="bar-col"><div class="bar" style="height:58%;animation-delay:.33s"></div><span class="mo">M</span></div>
-          <div class="bar-col"><div class="bar" style="height:88%;animation-delay:.40s"></div><span class="mo">J</span></div>
-          <div class="bar-col"><div class="bar" style="height:66%;animation-delay:.47s"></div><span class="mo">J</span></div>
-          <div class="bar-col"><div class="bar" style="height:95%;animation-delay:.54s"></div><span class="mo">A</span></div>
-          <div class="bar-col"><div class="bar" style="height:79%;animation-delay:.61s"></div><span class="mo">S</span></div>
-        </div>
-      </div>
-
-      <div class="hero-stats" style="grid-template-columns:repeat(4,1fr)">
-        <div>
-          <b>4+ yrs</b>
-          <span>remote experience delivering work on deadline for paying clients</span>
-        </div>
-        <div>
-          <b>99%</b>
-          <span>data accuracy achieved supervising 15+ data-entry staff</span>
-        </div>
-        <div>
-          <b>20%</b>
-          <span>reduction in data-validation processing time</span>
-        </div>
-        <div>
-          <b>25%</b>
-          <span>increase in team efficiency</span>
-        </div>
-      </div>
-
-      <p class="hero-muted">Open to remote Data Analyst and BI Analyst opportunities.</p>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="wrap">
-      <div class="section-label">About</div>
-      <h2 class="section-title">Analytics with a business-first mindset.</h2>
-
-      <div class="about-grid">
-        <div>
-          <p>
-            I'm a Data Analyst focused on turning raw business data into useful
-            information using <strong>Power BI, SQL, Python and Advanced Excel</strong>
-            across data cleaning, analysis, reporting, dashboard development and data storytelling.
-          </p>
-
-          <p>
-            I focus on what the numbers mean for the business:
-            <strong>Time, Money and Risk.</strong> The goal is to answer a real business question and make
-            the result understandable to decision-makers.
-          </p>
-
-          <p>
-            Before analytics, I worked as a <strong>freelance writer</strong> for
-            finance and business clients, where I learned to research independently,
-            explain complex information clearly, and deliver work in time.
-            I now provide <strong>data analytics consulting to
-            businesses</strong>, helping them organise their data,
-            improve reporting, and make better decisions
-          </p>
-
-          <p>
-            My background in <strong>Finance</strong>, gives me a strong understanding of how businesses think about money, 
-            performance and risk. I apply that knowledge through practical analytics projects across retail, 
-            fintech and logistics.
-          </p>
-        </div>
-
-        <div>
-          <div class="stat-card">
-            <div class="num">4+ yrs of Experience </div>
-            <div class="label"> Working remotely freelance work with real clients and real deadlines</div>
-          </div>
-
-          <div class="stat-card">
-            <div class="num">99% Accuracy </div>
-            <div class="label">Kept reporting error-free for a 15-person team, so no one had to second-guess the numbers</div>
-          </div>
-
-          <div class="stat-card">
-            <div class="num">20% Speed</div>
-            <div class="label">Cutting validation time, freeing up hours each week for actual analysis</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="wrap">
-      <div class="section-label">Toolkit</div>
-      <h2 class="section-title">The tools I use to solve analytics problems.</h2>
-
-      <div class="skill-groups">
-
-        <div class="skill-group">
-          <div class="group-head">
-            <span class="group-icon">📊</span>
-            <h3>Business Intelligence</h3>
-          </div>
-          <div class="skill-list">
-            <span>Power BI</span>
-            <span>DAX</span>
-            <span>Power Query</span>
-            <span>Data Modeling</span>
-            <span>KPIs</span>
-            <span>Dashboard Design</span>
-          </div>
-          <p class="skill-note">Building interactive reporting solutions and translating business questions into measurable KPIs.</p>
-        </div>
-
-        <div class="skill-group">
-          <div class="group-head">
-            <span class="group-icon">🗄️</span>
-            <h3>SQL & Data Analysis</h3>
-          </div>
-          <div class="skill-list">
-            <span>SQL</span>
-            <span>MySQL</span>
-            <span>PostgreSQL</span>
-            <span>Joins</span>
-            <span>CTEs</span>
-            <span>Window Functions</span>
-            <span>Aggregations</span>
-          </div>
-          <p class="skill-note">Querying relational data, transforming datasets and answering business questions with analytical SQL.</p>
-        </div>
-
-        <div class="skill-group">
-          <div class="group-head">
-            <span class="group-icon">🐍</span>
-            <h3>Python Analytics</h3>
-          </div>
-          <div class="skill-list">
-            <span>Python</span>
-            <span>Pandas</span>
-            <span>NumPy</span>
-            <span>Matplotlib</span>
-            <span>Data Cleaning</span>
-            <span>EDA</span>
-          </div>
-          <p class="skill-note">Cleaning, exploring and analysing data programmatically before communicating the findings visually.</p>
-        </div>
-
-        <div class="skill-group">
-          <div class="group-head">
-            <span class="group-icon">📈</span>
-            <h3>Excel & Workflow</h3>
-          </div>
-          <div class="skill-list">
-            <span>Advanced Excel</span>
-            <span>Pivot Tables</span>
-            <span>XLOOKUP</span>
-            <span>SUMIFS</span>
-            <span>Power Query</span>
-            <span>Git & GitHub</span>
-            <span>VS Code</span>
-          </div>
-          <p class="skill-note">Using spreadsheets and development tools to clean data, analyse results and maintain reproducible work.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="wrap">
-      <div class="section-label">Selected work</div>
-      <h2 class="section-title">Projects built around real business questions.</h2>
-
-      <div class="project">
-        <span class="tag">Business Intelligence · Fintech</span>
-        <h3>Kenya Fintech BI &amp; Portfolio Risk</h3>
-        <p>
-          A fintech business case analysing customer growth, transaction behaviour,
-          agent performance and digital-lending portfolio risk.
-        </p>
-        <ul>
-          <li>Prepared and analysed data using SQL and Python.</li>
-          <li>Built Power BI reporting around customer, transaction and portfolio performance.</li>
-          <li>Translated analytical findings into business recommendations and risk areas.</li>
-        </ul>
-        <div class="tools">
-          <span>Power BI</span><span>SQL</span><span>Python</span>
-        </div>
-        <a class="view" href="https://github.com/SharonNyaga/PowerBi-Projects/tree/main/fintech_wekeza_analysis" target="_blank" rel="noopener">View project</a>
-      </div>
-
-      <div class="project">
-        <span class="tag">Business Intelligence · Retail</span>
-        <h3>Sales Performance Dashboard</h3>
-        <p>
-          Interactive retail sales reporting designed to make revenue, customer,
-          product and payment performance easier for decision-makers to monitor.
-        </p>
-        <ul>
-          <li>Cleaned and structured raw sales data using Power Query.</li>
-          <li>Created DAX measures for sales and performance analysis.</li>
-          <li>Analysed product, customer, time and payment-method performance.</li>
-        </ul>
-        <div class="tools">
-          <span>Power BI</span><span>Power Query</span><span>DAX</span>
-        </div>
-        <a class="view" href="https://github.com/SharonNyaga/PowerBi-Projects/blob/main/tbl_sales_simple_dashboard.pbix" target="_blank" rel="noopener">View project</a>
-      </div>
-
-      <div class="project">
-        <span class="tag">Data Analysis · Python</span>
-        <h3>Retail Sales Analysis</h3>
-        <p>
-          Python-based analysis focused on data quality, sales patterns and
-          communicating useful findings to a non-technical audience.
-        </p>
-        <ul>
-          <li>Checked missing information, duplicates and unusual values.</li>
-          <li>Analysed sales and customer activity patterns.</li>
-          <li>Created visualisations to support business interpretation.</li>
-        </ul>
-        <div class="tools">
-          <span>Python</span><span>Pandas</span><span>NumPy</span>
-        </div>
-        <a class="view" href="https://github.com/SharonNyaga/Shah_Python" target="_blank" rel="noopener">View project</a>
-      </div>
-
-      <div class="project">
-        <span class="tag">Databases · SQL</span>
-        <h3>Sales Database &amp; Business Analysis</h3>
-        <p>
-          Relational sales database project using SQL to connect business data
-          across tables and answer practical analytical questions.
-        </p>
-        <ul>
-          <li>Built and queried a relational sales database.</li>
-          <li>Analysed customer, order and sales activity.</li>
-          <li>Converted database results into business findings.</li>
-        </ul>
-        <div class="tools">
-          <span>SQL</span><span>MySQL</span>
-        </div>
-        <a class="view" href="https://github.com/SharonNyaga/Shah_SQL" target="_blank" rel="noopener">View project</a>
-      </div>
-
-      <!-- Future flagship project -->
-      <div class="project">
-        <span class="tag">Coming next · Logistics Analytics</span>
-        <h3>Logistics Performance Analytics</h3>
-        <p>
-          An upcoming end-to-end project focused on delivery performance, shipment
-          costs, delays and operational efficiency using SQL, Python and Power BI.
-        </p>
-        <ul>
-          <li>Measure on-time delivery and delay patterns.</li>
-          <li>Analyse shipment cost and carrier performance.</li>
-          <li>Translate operational findings into recommendations.</li>
-        </ul>
-        <div class="tools">
-          <span>SQL</span><span>Python</span><span>Power BI</span>
-        </div>
-        <span style="color:var(--muted);font-size:.88rem;">Portfolio project in development</span>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="wrap">
-      <div class="section-label">Experience</div>
-      <h2 class="section-title">Experience that supports how I work.</h2>
-
-      <div class="job">
-        <div class="when">2024 — Present<br>Remote</div>
-        <div>
-          <h3>Independent Data Analytics Consultant</h3>
-          <div class="org">Self-employed · Remote</div>
-          <ul>
-            <li>Build Power BI dashboards and SQL/Excel reports for small business clients, turning scattered spreadsheets into something they actually use.</li>
-            <li>Help clients spot where they're losing time or money, then set up tracking so they can see it going forward.</li>
-            <li>Handle each project start to finish, from the first data pull to walking the client through their dashboard.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="job">
-        <div class="when">2021 — Present<br>Remote</div>
-        <div>
-          <h3>Freelance Content Writer</h3>
-          <div class="org">Self-employed · Fiverr / Direct Clients</div>
-          <ul>
-            <li>Researched and produced data-informed content for finance, technology and business clients.</li>
-            <li>Worked independently across multiple projects and deadlines in a fully remote environment.</li>
-            <li>Translated complex information into clear, structured communication for non-technical audiences.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="job">
-        <div class="when">Oct — Nov 2024</div>
-        <div>
-          <h3>Data Entry Supervisor</h3>
-          <div class="org">Ministry of Labour and Social Protection</div>
-          <ul>
-            <li>Supervised 15+ data-entry staff and maintained 99% data accuracy through daily quality checks.</li>
-            <li>Reduced data-validation processing time by 20% through workflow improvements.</li>
-            <li>Increased team efficiency by 25% through simplified processes and short training sessions.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="job">
-        <div class="when">May — Jul 2021<br>Nanyuki</div>
-        <div>
-          <h3>Trainee</h3>
-          <div class="org">Kenya Revenue Authority (KRA)</div>
-          <ul>
-            <li>Supported audit and compliance reviews by checking and verifying records across multiple sources.</li>
-            <li>Contributed to reporting used to support audit decisions.</li>
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CERTIFICATIONS -->
-  <section id="learning">
-    <div class="wrap">
-      <div class="section-label">Certifications &amp; Learning</div>
-      <h2 class="section-title">Building credentials alongside practical experience.</h2>
-
-      <div class="learn-grid">
-
-        <div class="learn-card">
-          <span class="status">Education</span>
-          <h3>Bachelor of Commerce, Finance</h3>
-          <div class="prov">Dedan Kimathi University of Technology · 2021</div>
-        </div>
-
-        <div class="learn-card">
-          <span class="status">Portfolio focus</span>
-          <h3>End-to-End Analytics Projects</h3>
-          <div class="prov">Retail, fintech and logistics business cases</div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="wrap">
-      <div class="contact-box">
-        <h2>Looking for a Data Analyst who can connect the numbers to the business?</h2>
-        <p>
-          I'm open to remote Data Analyst and BI Analyst opportunities.
-          If you're hiring, collaborating on an analytics project, or would like
-          to see more of my work, I'd be happy to connect.
-        </p>
-
-        <div class="contact-links">
-          <a class="btn solid" href="mailto:nyagasharon49@gmail.com">Email me</a>
-          <a class="btn ghost" href="https://www.linkedin.com/in/sharonviona" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn ghost" href="https://github.com/SharonNyaga" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn ghost" href="https://dev.to/driftbuild_log" target="_blank" rel="noopener">Blog</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="wrap">
-    © <span id="year"></span> Sharon Nyaga · Data Analyst · Power BI · SQL · Python · Excel
+  <div class="stats">
+    <div class="stat"><strong>99%</strong><span>Data accuracy sustained supervising a 15-person data-entry team</span></div>
+    <div class="stat"><strong>20%</strong><span>Cut in data-validation processing time through workflow redesign</span></div>
+    <div class="stat"><strong>25%</strong><span>Lift in team efficiency from simplified processes and training</span></div>
   </div>
-</footer>
+</div></header>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+<section id="about"><div class="container">
+  <div class="head"><div class="kicker">About</div><h2>Finance background, analytics practice</h2></div>
+  <div class="about">
+    <div>
+      <p>I started in finance and audit, checking records at the Kenya Revenue Authority, then supervising data-entry quality for a government ministry,before moving into freelance analytics. That background shapes how I work: I care about where a number comes from before I chart it, and I write for the person who has to act on the report, not just the person who requested it.</p>
+      <p>Today I build Power BI dashboards, write SQL, and clean data in Python and Excel for small-business clients, alongside ongoing freelance writing on finance and technology. I'm working toward a full-time remote Data Analyst or BI Analyst role. </p>
+      <div class="callout">Focus areas: financial analysis · business performance · risk awareness · audit &amp; compliance · KPI reporting</div>
+    </div>
+    <div>
+      <div class="panel">
+        <h3>Connect</h3>
+        <div class="rows">
+          <a href="https://www.linkedin.com/in/sharonviona" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/SharonNyaga" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://dev.to/driftbuild_log" target="_blank" rel="noopener noreferrer">Analytics writing</a>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Reach me</h3>
+        <div class="rows">
+          <a href="mailto:vionasharon6@gmail.com">vionasharon6@gmail.com</a>
+          <a href="tel:+254768497873">+254 768 497 873</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
 
-  const toggle = document.getElementById('navToggle');
-  const links = document.getElementById('navLinks');
+<section id="skills"><div class="container">
+  <div class="head"><div class="kicker">Skills</div><h2>What I work with day to day</h2></div>
+  <div class="skill-grid">
+    <div class="skill"><h3>Business Intelligence</h3><p>Power BI · DAX · Power Query · Data Modeling · Dashboard Development · KPI Development · Data Visualization</p></div>
+    <div class="skill"><h3>Data Analysis &amp; SQL</h3><p>SQL · MySQL · PostgreSQL · Joins · CTEs · Window Functions · Aggregations · Business Analysis</p></div>
+    <div class="skill"><h3>Python</h3><p>Pandas · NumPy · Matplotlib · Exploratory Data Analysis · Data Cleaning</p></div>
+    <div class="skill"><h3>Advanced Excel</h3><p>Pivot Tables · VLOOKUP/XLOOKUP · SUMIFS · Dynamic Formulas · Power Query · Reporting</p></div>
+    <div class="skill"><h3>Data Platforms (familiar)</h3><p>Google Cloud Platform · BigQuery · Snowflake</p></div>
+    <div class="skill"><h3>Tools</h3><p>Git · GitHub · VS Code</p></div>
+  </div>
+</div></section>
 
-  toggle.addEventListener('click', () => {
-    links.classList.toggle('open');
-  });
+<section id="projects"><div class="container">
+  <div class="head"><div class="kicker">Projects</div><h2>Selected work</h2><p>End-to-end analytics projects covering Power BI, SQL, Python and finance/business analysis.</p></div>
+  <div class="projects">
+    <article class="project">
+      <div class="tech">POWER BI · SQL · PYTHON</div>
+      <h3>Kenya Fintech BI &amp; Portfolio Risk Analysis</h3>
+      <ul>
+        <li>Analyzed customer growth, transaction activity, agent performance and digital-lending portfolio data for a fintech business case.</li>
+        <li>Used SQL and Python to clean, transform and analyze underlying business data.</li>
+        <li>Developed Power BI reporting around customer, transaction and portfolio performance, with recommendations on growth and risk.</li>
+      </ul>
+      <div class="links"><a href="https://github.com/SharonNyaga/PowerBi-Projects/tree/main/fintech_wekeza_analysis" target="_blank" rel="noopener noreferrer">View on GitHub</a></div>
+    </article>
+    <article class="project">
+      <div class="tech">POWER BI · POWER QUERY · DAX</div>
+      <h3>Sales Performance Dashboard</h3>
+      <ul>
+        <li>Built an interactive retail sales dashboard tracking revenue, customer, product and payment performance.</li>
+        <li>Cleaned and structured raw sales data in Power Query and wrote DAX measures for performance analysis.</li>
+        <li>Analyzed performance across products, customers, time periods and payment methods.</li>
+      </ul>
+      <div class="links"><a href="https://www.datascienceportfol.io/sharonviona/projects/2" target="_blank" rel="noopener noreferrer">View project</a></div>
+    </article>
+    <article class="project">
+      <div class="tech">PYTHON · PANDAS · NUMPY · MATPLOTLIB</div>
+      <h3>Retail Sales Analysis</h3>
+      <ul>
+        <li>Ran exploratory analysis of retail sales and customer activity, checking for missing values, duplicates and unusual records.</li>
+        <li>Analyzed sales patterns and built visualizations designed for non-technical audiences.</li>
+        <li>Surfaced patterns used to inform sales and customer-activity decisions.</li>
+      </ul>
+      <div class="links">
+        <a href="https://www.datascienceportfol.io/sharonviona/projects/1" target="_blank" rel="noopener noreferrer">View writeup</a>
+        <a href="https://github.com/SharonNyaga/Shah_Python" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+      </div>
+    </article>
+    <article class="project">
+      <div class="tech">SQL · MYSQL</div>
+      <h3>Sales Database &amp; Business Analysis</h3>
+      <ul>
+        <li>Built and queried a relational sales database to combine information across tables and answer practical business questions.</li>
+        <li>Analyzed customer, order and sales activity and converted query results into clear business findings.</li>
+      </ul>
+      <div class="links"><a href="https://github.com/SharonNyaga/Shah_SQL" target="_blank" rel="noopener noreferrer">View on GitHub</a></div>
+    </article>
+  </div>
+</div></section>
 
-  links.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => links.classList.remove('open'));
-  });
-</script>
+<section id="experience"><div class="container">
+  <div class="head"><div class="kicker">Experience</div><h2>Where I've worked</h2></div>
+  <div class="timeline-wrap">
+    <article class="timeline">
+      <div class="dot"></div>
+      <h3>Data Analyst (Power BI, SQL, Excel) — Self-Employed</h3>
+      <div class="role-meta">Remote</div>
+      <span class="date mono">DEC 2024 – PRESENT</span>
+      <ul>
+        <li>Build Power BI dashboards and SQL/Excel reporting systems for small-business clients, turning fragmented spreadsheets into practical reporting tools.</li>
+        <li>Identify where clients are losing time or money and set up tracking systems to monitor performance over time.</li>
+        <li>Manage analytics projects end-to-end, from data extraction through dashboard development and client walkthroughs.</li>
+        <li>Translate business requirements into KPIs, reports and visual insights that support decision-making.</li>
+      </ul>
+    </article>
+    <article class="timeline">
+      <div class="dot"></div>
+      <h3>Freelance Content Writer — Finance &amp; Technology</h3>
+      <div class="role-meta">Fiverr / Direct Clients · Remote</div>
+      <span class="date mono">2021 – PRESENT</span>
+      <ul>
+        <li>Produce data-informed content for finance, technology and business clients, translating complex information for non-technical audiences.</li>
+        <li>Manage research, analysis, drafting and delivery independently across multiple projects and deadlines.</li>
+      </ul>
+    </article>
+    <article class="timeline">
+      <div class="dot"></div>
+      <h3>Data Entry Supervisor</h3>
+      <div class="role-meta">Ministry of Labour and Social Protection</div>
+      <span class="date mono">OCT 2024 – NOV 2024</span>
+      <ul>
+        <li>Supervised 15+ data-entry staff and maintained 99% data accuracy through daily quality-control checks.</li>
+        <li>Cut data-validation processing time by 20% through workflow improvements.</li>
+        <li>Lifted team efficiency by 25% through simplified processes and targeted training.</li>
+      </ul>
+    </article>
+    <article class="timeline">
+      <div class="dot"></div>
+      <h3>Trainee</h3>
+      <div class="role-meta">Kenya Revenue Authority (KRA), Nanyuki</div>
+      <span class="date mono">MAY 2021 – JUL 2021</span>
+      <ul>
+        <li>Supported audit and compliance reviews, checking and verifying records across multiple data sources.</li>
+        <li>Assisted with reporting and analysis used to support audit decisions.</li>
+      </ul>
+    </article>
+  </div>
+</div></section>
 
-</body>
-</html>
+<section id="education"><div class="container">
+  <div class="head"><div class="kicker">Education &amp; Certification</div><h2>Credentials</h2></div>
+  <div class="edu-grid">
+    <div class="edu">
+      <span class="badge done">Completed · 2021</span>
+      <h3>Bachelor of Commerce — Finance</h3>
+      <div class="role-meta">Dedan Kimathi University of Technology</div>
+    </div>
+    <div class="edu">
+      <span class="badge progress">In progress · Target Oct 2026</span>
+      <h3>Microsoft Power BI Data Analyst Associate (PL-300)</h3>
+      <div class="role-meta">Microsoft</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="container">
+  <div class="head"><div class="kicker">Contact</div><h2>Let's talk</h2><p>Open to Data Analyst, Finance Analyst, BI Analyst and financial-services analytics roles — remote-first.</p></div>
+  <div class="contact">
+    <div class="panel">
+      <h3>Download my CV</h3>
+      <p>The current résumé I use for applications, formatted for both ATS systems and human reviewers.</p>
+      <a class="btn primary" href="Sharon_Nyaga_Data_Finance_Analyst_CV.docx" download>Download CV</a>
+    </div>
+    <div class="panel">
+      <h3>Email or call directly</h3>
+      <p>Based in Kenya, working remote hours across time zones.</p>
+      <a class="btn ghost" href="mailto:vionasharon6@gmail.com">vionasharon6@gmail.com</a>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="container footer">
+  <div><div class="fname">Sharon Viona Nyaga</div><div class="froles">Data Analyst · Finance Analyst</div></div>
+  <div class="flinks">
+    <a href="https://www.linkedin.com/in/sharonviona" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="https://github.com/SharonNyaga" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="https://dev.to/driftbuild_log" target="_blank" rel="noopener noreferrer">Blog</a>
+    <a href="mailto:vionasharon6@gmail.com">Email</a>
+  </div>
+</div></footer>
+
+</body></html>
